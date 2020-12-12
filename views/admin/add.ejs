@@ -1,0 +1,20 @@
+<% layout('/layouts/boilerplate') %>
+
+<div class="cont-add">
+    <form action="/add" method="POST">
+        <label for="name">Nombre</label>
+        <input type="text" name="name" id="name">
+        <label for="origen">Tienda de Origen</label>
+        <input type="text" name="origen" id="origen">
+        <label for="IB">IB</label>
+        <input type="text" name="IB" id="IB">
+        <label for="tracking">Número de Tracking</label>
+        <input type="text" name="tracking" id="tracking">
+        <label for="status">Estado:</label>
+        <select id="status" name="status">
+            <option value="Bodega Miami" selected>Bodega Miami</option>
+            <option value="Bodega Panamá">Bodega Panamá</option>
+          </select>
+        <button type="submit">Registrar</button>
+    </form>
+</div>

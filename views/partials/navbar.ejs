@@ -1,0 +1,26 @@
+<nav class="navbar">
+    <div class="navigation">
+        <ul class="navbutton">
+          <% if(!currentUser || currentUser.type == "customer" ) { %>
+            <li><a href="/">Home</a></li>
+            <li><a href="/packages">Mis Paquetes</a></li>
+            <li><a href="">Preguntas Frecuentes</a></li>
+            <li><a href="">Contacto</a></li>
+          <% } else { %> 
+            <li><a href="/">Home</a></li>
+            <li><a href="/add">Registrar Paquete</a></li>
+          <% } %> 
+          </ul>
+
+          <ul class="userButtons">
+            <% if(!currentUser) { %>
+            <li><a href="/login">Ingresar</a></li>
+            <li><a href="/register">Registrar</a></li>
+            <% } else { %> 
+              <li><a href="">Mi cuenta <%= currentUser.username %> </a></li>
+              <li><a href="/logout">Logout</a></li>
+            <% }  %> 
+            
+          </ul>
+    </div>
+</nav>

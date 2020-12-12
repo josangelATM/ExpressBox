@@ -1,0 +1,17 @@
+<% layout('/layouts/boilerplate') %>
+
+<div class="container-register">
+    <form action="/register" method="POST">
+        <label for="name">Nombre</label>
+        <input type="text" id="name" name="name">
+        <label for="lastname">Apellido</label>
+        <input type="text" id="lastname" name="lastname">
+        <label for="username">Nombre de usuario</label>
+        <input type="text" id="username" name="username">
+        <label for="mail">Correo</label>
+        <input type="text" id="mail" name="mail">
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" name="password">
+        <button type="submit">Registrar</button>
+    </form>
+</div>
