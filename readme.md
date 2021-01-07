@@ -35,6 +35,6 @@ Its ok, all the data its fictitious data.
 
 If you have any tips, bugs, or whatever, feel free to email me to: joseangel19.lol@gmail.com 
 
-![5 Ways to Outsmart the Editor – Patience Bloom in 2020 | Funny animals,  Funny cats, Cat memes](https://i.pinimg.com/originals/e6/29/49/e6294964e26db35f05e41e25e689b19d.gif)
+
 
 
