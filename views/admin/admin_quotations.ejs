@@ -1,0 +1,41 @@
+<% layout('/layouts/boilerplate') %>
+<% function getSMonth(number){
+    var months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio","Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+    
+    return(months[number])
+
+} %> 
+
+<h2 class="package-title">Cotizaciones</h2>
+
+    <form class="quotation-search-form" action="/quotation/admin" method="POST">
+    <input type="text" name="input" placeholder="IB o ID de la cotización">
+    <select name="type">
+        <option value="IB" selected>IB</option>
+        <!-- <option value="ID">ID</option> -->
+    </select>
+    <button class="normal-btn">Buscar</button>
+    </form>
+
+    <div>
+        <% if(quotations && quotations.length > 0)  { %>
+            <table class="packages-table">
+                <th>ID</th>
+                <th>Fecha envio</th>
+                <th>Estado</th>
+        <% for (quotation of quotations) { %> 
+            <tr>
+                <td><a href="/quotationAdmin/<%= quotation.id %> "><%= quotation.id %></a></td>
+                <td><a href="/quotationAdmin/<%= quotation.id %> "><%= quotation.registDate.getDate()+"-"+getSMonth(quotation.registDate.getMonth())+"-"+quotation.registDate.getFullYear() %> %></a></td>
+                <td><a href="/quotationAdmin/<%= quotation.id %> "><%= quotation.status %></a></td>
+            </tr>
+        <% } %> 
+        </table>
+            
+    <%  } else{%> 
+        <span class="message">Ningún usuario encontrado.</span>
+    <% } %>
+    
+    </div>
+
+

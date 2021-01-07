@@ -1,3 +1,9 @@
+:root {
+    --red: #C42E2C;
+    --black: #000002;
+  }
+
+
 *{
     padding: 0;
     margin: 0;
@@ -10,8 +16,18 @@ html{
 }
 
 body{
-    background-color: gray;
+    background-color: var(--black);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height:100vh;
 }
+.quotation-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 a {
     text-decoration: none;
 }
@@ -22,7 +38,6 @@ li {
 
 .navbar{
     display: flex;
-    background-color: #3f4245;
     height: 5rem;
     justify-content: space-between;
 }
@@ -38,6 +53,7 @@ li {
     align-items: center;
     width: 100vw;
     justify-content: space-between;
+    background-color: #000002;
 }
 
 .userButtons{
@@ -49,21 +65,19 @@ li {
     align-items: center;
 }
 
-.navigation ul li:hover{
-   background-color: #6d837d
+.navigation ul li a:hover{
+    opacity:1;
 }
 
 
-.navigation ul li a{
-    color: #4e6a7b;
+.navigation ul li a, .navigation ul li {
+    color: var(--red);
     padding: 3rem 1rem;
+    font-size: 2rem;
 }
 
-li a {
-    font-size: 2.5rem;
-}
 
-.container-register, .cont-add {
+.container-register, .cont-add, .container-search .cust-search-cont {
     border: 1px black dashed;
     width: 40rem;
     margin: 10rem auto;
@@ -79,12 +93,231 @@ li a {
     border: 1px black dashed;
 }
 
-.item-package{
-    border: 1px white dashed;
-    display: flex;
-    flex-direction: row;
-    font-size: 3rem;
-    justify-content: space-between;
-    margin: 2rem 0;
+
+.main-message{
+    color: var(--red);
+    padding: 2rem 0;
+    font-size: 5rem;
 }
 
+.main{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.btn-cont{
+    margin-top: 10rem;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.main-screen-btn{
+    color: var(--red);
+    padding: 2rem 2rem;
+    font-size: 4rem;    
+    border: var(--red) solid 1px;
+    border-radius: 20px;
+}
+
+.login-form, .register-form, .add-form{
+    color: var(--red);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-size: 2.5rem;
+    border: var(--red) solid 1px;
+    border-radius: 20px;
+    height: 25rem;
+    padding: 2rem 2rem;
+}
+
+.normal-btn{
+    color: var(--red);
+    padding: 1rem 1rem;  
+    border: var(--red) solid 1px;
+    border-radius: 20px;
+    background-color: var(--black);
+    font-size: 2rem;
+    align-self: center;
+    cursor: pointer;
+}
+
+.normal-btn:focus {
+    outline: none;
+}
+
+.register-form{
+    height: 35rem;
+}
+
+.login-form input{
+   margin-top: 0rem;
+}
+
+input{
+    font-size: 2rem;
+    background: transparent;
+    border: var(--red) solid 1px;
+    color: var(--red);
+}
+
+.item-package{
+    border: 1px var(--red) dashed;
+    display: flex;
+    flex-direction: row;
+    font-size: 2.5rem;
+    justify-content: space-between;
+    margin: 2rem 0;
+    color: var(--red);
+}
+
+.package-title{
+    font-size: 5rem;
+    color: var(--red);
+}
+
+td,th,tr{
+    border: 1px solid var(--red);
+}
+
+textarea{
+    background: transparent;
+    font-size: 2rem;
+    color: red;
+}
+.packages-table {
+    margin-top: 2rem;
+    color: var(--red);
+    font-size: 2rem;
+    text-align: center;
+    border-spacing:10px;
+
+}
+
+.packages-table td {
+    margin: 2rem 2rem;
+    padding: 1rem 1rem;
+}
+
+.label-form{
+    color: var(--red);
+    font-size: 1.5rem;
+    width: 50%;
+    text-align: center;
+}
+
+.quotation-form{
+    color: var(--red);
+    display: flex;
+    flex-direction: column;
+    height: 100rem;
+    width: 40%;
+    justify-content: space-between;
+    font-size: 2.5rem;
+    border: var(--red) solid 1px;
+    border-radius: 20px;
+    padding: 2rem 0;
+}
+
+.faq-cont{
+    color: var(--red);
+    font-size: 1.5rem;
+    width: 75%;
+    margin-top: 3rem;
+    border: var(--red) solid 1px;
+    border-radius: 20px;
+    padding: 2rem 2rem;
+}
+
+.faq-cont ul li{
+    margin-top: 2rem;
+}
+
+select{
+    background:transparent;
+    color: var(--red);
+    font-size: 2rem;
+}
+
+.add-form{
+    margin-top: 5rem;
+    height: 55%;
+}
+
+.container-search{
+    font-size: 2rem;
+    color: var(--red);
+}
+
+
+.tracking-form, .ib-form, .customer-search-form,.quotation-search-form, .package-form{
+    font-size: 2rem;
+    color: var(--red);
+    margin-top: 3rem;
+    border: var(--red) solid 1px;
+    border-radius: 20px;
+    padding: 2rem 2rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 40%;
+}
+
+.container-search form input{
+   height: 2.3rem;
+}
+
+
+.message{
+    color: var(--red);
+    font-size: 3rem;
+}
+
+.customer-search-form{
+    width: 60%;
+}
+
+.quotation-search-form{
+    width: 45%;
+}
+
+a{
+    color: var(--red);
+}
+
+.link{
+    font-size: 1.5rem;
+    color: var(--red)
+}
+
+.quotation-cont{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border: var(--red) solid 1px;
+    border-radius: 20px;
+    padding: 2rem 2rem;
+    height: 60%;
+}
+
+.data{
+    font-size: 2rem;
+    color: var(--red);
+}
+
+.down-btn-cont{
+    display: flex;
+    justify-content: space-around;
+}
+
+.package-form{
+    height: 30%;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+}

@@ -1,11 +1,14 @@
 <% layout('/layouts/boilerplate') %>
-
-<div class="container-register">
-    <form action="/login" method="POST">
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username">
-        <label for="password">Contraseña</label>
-        <input type="password" id="password" name="password">
-        <button type="submit">Entrar</button>
-    </form>
-</div>
+<main class="main">
+        <form class="login-form" action="/login" method="POST">
+            <div class="input-label">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" size="10">
+            </div>
+            <div class="input-label">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" name="password" size="8">
+            </div>
+            <button class="normal-btn" class=".btn-cont">Ingresar</button>
+        </form>
+</main>

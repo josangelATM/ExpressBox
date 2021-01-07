@@ -1,0 +1,38 @@
+<% layout('/layouts/boilerplate') %> 
+
+<form class="package-form" action="package/update/<%= package.id %>?_method=PATCH" method="post">
+    <span>Nombre: <%= package.name %>  </span>
+    <span>IB: <%= package.IB %> </span>
+    <span>Tienda Origen: <%= package.origen %>  </span>
+    <span>Tracking: <%= package.trackingN %>  </span>
+
+    <select id="status" name="status">
+        <% 
+        var options = ['Bodega Miami','Bodega Panamá','Entregado']
+        
+        for(option of options){
+            var selected = (package.status == option) ? "selected" : "";
+            %><option value="<%= option %>" <%= selected %>><%= option %></option><%
+            }
+        %>
+    </select>
+    <button class="normal-btn">Actualizar</button>
+</form>
+
+
+
+<h2 class="package-title">¿Actualizar otro paquete?</h1>
+
+
+<form class="ib-form" action="package/update" method="POST">
+    <label for="IB">Introduzca IB:</label>
+    <input type="text" name="IB" id="IB">
+    <button class="normal-btn">Buscar</button>
+</form>
+
+<form class="tracking-form" action="package/update" method="POST">
+    <label for="Tracking">Introduzca Tracking:</label>
+    <input type="text" name="tracking" id="tracking">
+    <button class="normal-btn">Buscar</button>
+</form>
+

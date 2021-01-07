@@ -2,23 +2,26 @@
     <div class="navigation">
         <ul class="navbutton">
           <% if(!currentUser || currentUser.type == "customer" ) { %>
-            <li><a href="/">Home</a></li>
-            <li><a href="/packages">Mis Paquetes</a></li>
-            <li><a href="">Preguntas Frecuentes</a></li>
-            <li><a href="">Contacto</a></li>
+            <li><a href="/">HOME</a></li>
+            <li><a href="/package/packages">MIS PAQUETES</a></li>
+            <li><a href="/quotation">COTIZACIÓN</a></li>
+            <li><a href="/FAQ">FAQ</a></li>
           <% } else { %> 
-            <li><a href="/">Home</a></li>
-            <li><a href="/add">Registrar Paquete</a></li>
+            <li><a href="/">HOME</a></li>
+            <li><a href="/package/add">REGISTRAR PAQUETE</a></li>
+            <li><a href="/package/update">BUSCAR PAQUETE</a></li>
+            <li><a href="/customer">BUSCAR CLIENTE</a></li>
+            <li><a href="/quotation">COTIZACIONES</a></li>
           <% } %> 
           </ul>
 
           <ul class="userButtons">
             <% if(!currentUser) { %>
-            <li><a href="/login">Ingresar</a></li>
-            <li><a href="/register">Registrar</a></li>
+            <li><a href="/login">INICIAR SESIÓN</a></li>
+            <li><a href="/register">CREAR CUENTA</a></li>
             <% } else { %> 
-              <li><a href="">Mi cuenta <%= currentUser.username %> </a></li>
-              <li><a href="/logout">Logout</a></li>
+              <li><%= currentUser.username %></li>
+              <li><a href="/logout">LOGOUT</a></li>
             <% }  %> 
             
           </ul>

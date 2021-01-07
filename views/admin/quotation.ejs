@@ -1,0 +1,32 @@
+<% layout('/layouts/boilerplate') %>
+<% function getSMonth(number){
+    var months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio","Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+    
+    return(months[number])
+
+} %> 
+
+<h2 class="package-title">Cotizacion <%= quotation.id %> </h2>
+<div class="quotation-cont">
+    <span class="data">Mensaje:</span>
+    <textarea cols="30" rows="10" disabled> <%= quotation.message %> </textarea>
+    <span class="data">Cliente: <a href="/customer/<%= quotation.owner.id %> "><%= quotation.owner.username %> </a></span>
+    <span class="data">Links:</span>
+    <% for(link of quotation.links) {%>
+        <a class= "link" href="<%= link %>"><%= link %></a>
+    <% } %> 
+    <span class="data">Fecha de envio: <%= quotation.registDate.getDate()+"-"+getSMonth(quotation.registDate.getMonth())+"-"+quotation.registDate.getFullYear() %> </span>
+    <span class="data">Estado: <%= quotation.status %> </span>
+    <div class="down-btn-cont">
+        <% if(quotation.status == 'pendiente'){ %> 
+            <a href="/quotation/admin" class="normal-btn">Regresar</a>
+            <form action="/quotation/admin/<%= quotation.id %>?_method=PATCH" method="POST">
+                <button class="normal-btn">Marcar como respondida</button>
+            </form>
+        <% }else{ %>
+            <a href="/quotation/admin" class="normal-btn">Regresar</a>
+        <% } %>   
+    </div>
+   
+</div>
+

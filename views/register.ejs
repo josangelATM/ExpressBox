@@ -1,17 +1,27 @@
 <% layout('/layouts/boilerplate') %>
-
-<div class="container-register">
-    <form action="/register" method="POST">
-        <label for="name">Nombre</label>
-        <input type="text" id="name" name="name">
-        <label for="lastname">Apellido</label>
-        <input type="text" id="lastname" name="lastname">
-        <label for="username">Nombre de usuario</label>
-        <input type="text" id="username" name="username">
-        <label for="mail">Correo</label>
-        <input type="text" id="mail" name="mail">
-        <label for="password">Contraseña</label>
-        <input type="password" id="password" name="password">
-        <button type="submit">Registrar</button>
+<main class="main">
+    <form class="register-form" action="/register" method="POST">
+        <div>
+            <label for="name">Nombre</label>
+            <input type="text" id="name" name="name" size="20">
+        </div> 
+        <div>
+            <label for="lastname">Apellido</label>
+            <input type="text" id="lastname" name="lastname" size="20">
+        </div>
+        <div>
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" size="10">
+        </div>
+        <div>
+            <label for="mail">Correo</label>
+            <input type="text" id="mail" name="mail">   
+        </div>
+        <div>
+            <label for="password">Contraseña</label>
+            <input type="password" id="password" name="password" size="10">
+        </div>
+        <button type="submit" class="normal-btn" class="btn-cont">Registrar</button>
     </form>
-</div>
+    
+</main>

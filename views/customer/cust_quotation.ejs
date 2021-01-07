@@ -1,0 +1,39 @@
+<% layout('/layouts/boilerplate') %>
+<% function getSMonth(number){
+    var months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio","Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+    
+    return(months[number])
+
+} %> 
+<body>
+        <h2 class="package-title">Mis Cotizaciones</h2>
+        <div class="container-quotations">
+            <% if(quotations && quotations.length > 0)  { %>
+                <table class="packages-table">
+                    <th>ID</th>
+                    <th>Fecha envio</th>
+                    <th>Status</th>
+                    <th>Correo registrado</th>
+            <% for (quotation of quotations) { %> 
+                <tr>
+                    <td><%= quotation.id %></td>
+                    <td><%= quotation.registDate.getDate()+"-"+getSMonth(quotation.registDate.getMonth())+"-"+quotation.registDate.getFullYear() %></td>
+                    <td><%= quotation.status %></td>
+                    <td><%= quotation.emailTo %></td> 
+                </tr>
+            <% } %> 
+            </table>
+            <% } %>
+        </div>
+
+    <h2 class="package-title">Realizar cotización</h2>
+    
+    <form class="quotation-form" action="/quotation" method="POST">
+        <textarea name="message" id="message" cols="30" rows="6" placeholder="Introduzca un mensaje breve"></textarea>   
+        <label for="links" class="label-form">Introduzca los enlaces de los paquetes que desea cotizar, separados por una punto y coma(;) como se muestra abajo.</label>
+        <textarea name="links" id="links" cols="30" rows="6" placeholder="www.amazon.com\producto; www.aliexpress.com\producto; www.ebay.com\producto"></textarea>
+        <input type="email" name="emailTo" id="emailTo" placeholder="Correo eléctronico">
+        <button class="normal-btn" class=".btn-cont">Enviar Cotización</button>
+    </form>
+
+</body>

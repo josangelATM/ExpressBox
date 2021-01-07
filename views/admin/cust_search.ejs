@@ -1,0 +1,53 @@
+<% layout('/layouts/boilerplate') %>
+<% function getSMonth(number){
+    var months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio","Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+    
+    return(months[number])
+
+} %> 
+
+<h2 class="package-title">Buscar clientes</h2>
+
+<form class="customer-search-form"action="/customer" method="POST">
+<label for="input">IB/Nombre/Usuario</label>
+<input type="text" name="input" id="input">
+<label for="type"></label>
+<select name="type" id="type">
+    <option value="IB" selected>IB</option>
+    <option value="name">Nombre</option>
+    <option value="username">Username</option>
+</select>
+<button class="normal-btn">Buscar</button>
+</form>
+
+
+
+<div class="container-customers">
+    <% if(customers && customers.length > 0)  { %>
+        <table class="packages-table">
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Username</th>
+            <th>IB</th>
+            <th>Fecha registro</th>
+        
+    <% for (customer of customers) { %> 
+        <tr>
+            <td><a href="/customer/<%= customer.id %> "><%= customer.name %></a></td>
+            <td><a href="/customer/<%= customer.id %> "><%= customer.email %></a></td>
+            <td><a href="/customer/<%= customer.id %> "><%= customer.username %></a></td>
+            <td><a href="/customer/<%= customer.id %> "><%= customer.IB %></a></td>
+            <td><a href="/customer/<%= customer.id %> "><%= customer.registDate.getDate()+"-"+getSMonth(customer.registDate.getMonth())+"-"+customer.registDate.getFullYear() %></a></td>
+        </tr>
+    <% } %> 
+    </table>
+        
+<%  } else{%> 
+    <span class="message">Ningún usuario encontrado.</span>
+<% } %>
+
+</div>
+
+
+
+

@@ -1,0 +1,52 @@
+<% layout('/layouts/boilerplate') %> 
+<% function getSMonth(number){
+    var months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio","Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+    
+    return(months[number])
+
+} %> 
+
+    <h2 class="package-title">Buscar paquetes</h2>
+    <form class="ib-form" action="/package/update" method="POST">
+        <label for="IB">IB:</label>
+        <input type="text" name="IB" id="IB">
+        <button class="normal-btn" class="search-btn">Buscar</button>
+    </form>
+
+    <form class="tracking-form" action="/update" method="POST">
+        <label for="Tracking">Tracking:</label>
+        <input type="text" name="tracking" id="tracking">
+        <button class="normal-btn" class="search-btn">Buscar </button>
+    </form>
+
+
+<div class="container-packages">
+    <% if(packages && packages.length > 0)  { %>
+        <table class="packages-table">
+            <th>Nombre</th>
+            <th>Tienda Origen</th>
+            <th>Tracking</th>
+            <th>Status</th>
+            <th>Peso(Lbs)</th>
+            <th>Precio</th>
+            <th>Fecha registro</th>
+        
+    <% for (package of packages) { %> 
+        <tr>
+            <td><a href="/package/update/<%= package.id %> "><%= package.name %></a></td>
+            <td><a href="/package/update/<%= package.id %> "><%= package.origen %></a></td>
+            <td><a href="/package/update/<%= package.id %> "><%= package.trackingN %></a></td>
+            <td><a href="/package/update/<%= package.id %> "><%= package.status %></a></td>
+            <td><a href="/package/update/<%= package.id %> "><%= package.weight %></a></td>
+            <td><a href="/package/update/<%= package.id %> "><%= package.fleetPrice.toFixed(2) %></a></td>
+            <td><a href="/package/update/<%= package.id %> "><%= package.registDate.getDate()+"-"+getSMonth(package.registDate.getMonth())+"-"+package.registDate.getFullYear() %></a></td>
+        </tr>
+
+    <% } %> 
+    </table>
+        
+<%  } else{%> 
+    <span class="message">Ningún paquete encontrado.</span>
+<% } %>
+
+</div>

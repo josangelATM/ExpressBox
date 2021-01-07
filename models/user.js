@@ -7,10 +7,6 @@ const UserSchema = new Schema({
         type: String,
         required: true,
     },
-    lastname: {
-        type: String,
-        required: true,
-    },
     email: {
         type: String,
         required: true,
@@ -28,17 +24,24 @@ const UserSchema = new Schema({
     type : {
         type: String,
         required: true
+    },
+    registDate:{
+        type: Date,
+        default: Date.now,
+        required: true,
     }
 });
 
-UserSchema.statics.generateIB = function () {
-    var free = false
-    var ib
-    do {
-    ib = Math.floor(Math.random() * 10 + 1);  
-      } while (!free);
-}
-
 UserSchema.plugin(passportLocalMongoose);
+
+UserSchema.statics.random = function(callback) {
+    this.count(function(err, count) {
+      if (err) {
+        return callback(err);
+      }
+      var rand = Math.floor(Math.random() * count);
+      this.findOne().skip(rand).exec(callback);
+    }.bind(this));
+  };
 
 module.exports = mongoose.model('User', UserSchema);

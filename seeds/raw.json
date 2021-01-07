@@ -1,0 +1,63 @@
+[
+  {
+    "name": "Rita Snow",
+    "email": "ritasnow@pathways.com",
+    "type": "customer"
+  },
+  {
+    "name": "Nita Tyler",
+    "email": "nitatyler@pathways.com",
+    "type": "customer"
+  },
+  {
+    "name": "Strickland Norton",
+    "email": "stricklandnorton@pathways.com",
+    "type": "customer"
+  },
+  {
+    "name": "Kerry Klein",
+    "email": "kerryklein@pathways.com",
+    "type": "customer"
+  },
+  {
+    "name": "Meagan Michael",
+    "email": "meaganmichael@pathways.com",
+    "type": "customer"
+  },
+  {
+    "name": "Carole Snider",
+    "email": "carolesnider@pathways.com",
+    "type": "customer"
+  },
+  {
+    "name": "Page Rutledge",
+    "email": "pagerutledge@pathways.com",
+    "type": "customer"
+  },
+  {
+    "name": "Mcleod Newman",
+    "email": "mcleodnewman@pathways.com",
+    "type": "customer"
+  },
+  {
+    "name": "Rollins Oneal",
+    "email": "rollinsoneal@pathways.com",
+    "type": "customer"
+  },
+  {
+    "name": "Marshall Harding",
+    "email": "marshallharding@pathways.com",
+    "type": "customer"
+  },
+
+  {
+    "name": "admin admin",
+    "email": "admin1@pathways.com",
+    "type": "admin"
+  },
+  {
+    "name": "admin admin",
+    "email": "admin2@pathways.com",
+    "type": "admin"
+  }
+]

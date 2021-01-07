@@ -5,13 +5,25 @@ const port = 3000
 const engine = require('ejs-mate')
 const bodyParser = require('body-parser')
 const User = require('./models/user')
+const Package = require('./models/package')
+const Quotation = require('./models/quotation')
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const mongoose = require('mongoose');
 const session = require('express-session')
 const IBgenerator = require('./utils/randomIB')
-const Package = require('./models/package')
+const userRoutes = require('./routes/users')
+const quotationRoutes = require('./routes/quotations')
+const packageRoutes = require('./routes/packages')
+const customerRoutes = require('./routes/customer')
+const methodOverride  = require('method-override')
+const flash = require('connect-flash')
+const cookieParser = require('cookie-parser')
+require('dotenv').config();
 
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config();
+  }
  
 app.engine('ejs', engine);
  
@@ -37,14 +49,35 @@ db.once("open", () => {
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use('/public',express.static(path.join(__dirname, 'public')))
 app.use(bodyParser.json())
+app.use(methodOverride('_method'))
 
+//Error Handler
+app.use((err, req, res, next) => {
+    const { statusCode = 500 } = err;
+    if (!err.message) err.message = 'Oh No, Something Went Wrong!'
+    res.status(statusCode).render('error', { err })
+})
+
+app.use(cookieParser())
 
 app.use(session({
     secret: 'keyboard cat',
     resave: false,
     saveUninitialized: true,
-    //cookie: { secure: true } remove this line for HTTP connection
+    cookie: { secure: false } 
   }))
+
+app.use(flash())
+const sessionFlash = function(req, res, next) {
+    res.locals.currentUser = req.user;
+    res.locals.error = req.flash('error');
+    res.locals.success = req.flash('success');
+    next();
+
+}
+app.use(sessionFlash)
+
+
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
@@ -57,65 +90,24 @@ app.use((req, res, next) => {
     next();
 })
 
-//Middleware
-const isLogged = function loggedIn(req, res, next) {
-    if (req.user) {
-        next();
-    } else {
-        res.redirect('/login');
-    }
-}
+app.use('/', userRoutes)
+app.use('/customer', customerRoutes)
+app.use('/quotation',quotationRoutes)
+app.use('/package', packageRoutes)
+
+
 
 app.get('/',(req,res) => {
-    res.render('home', {currentUser: res.locals.currentUser})
+    res.render('home', {title: 'ExpressBox | De USA a Panamá', currentUser: res.locals.currentUser})
 })
 
-app.get('/login', (req,res) => {
-    res.render('login', {currentUser: res.locals.currentUser})
+
+app.get('/FAQ', (req,res)=>{
+    res.render('customer/faq',{title: 'Preguntas frecuentes | ExpressBox'})
 })
 
-app.post('/login', passport.authenticate('local'), async (req,res) => {
-    res.locals.currentUser = req.user;
-    console.log(req.user.type);
-    res.render('home')
-})
+const PORT = process.env.PORT || 3000;
 
-app.get('/logout', (req, res) => {
-    req.session.destroy(function (err) {
-        req.logout()
-        res.redirect('/')
-      });
-})
-
-app.get('/register', (req,res) => {
-    res.render('register', {currentUser: res.locals.currentUser})
-})
-app.post('/register', async (req,res) => {
-    const user = new User({name: req.body.name, lastname: req.body.lastname, email: req.body.mail, username : req.body.username, IB : IBgenerator(), type : 'admin'}); 
-    const registeredUser = await User.register(user,req.body.password)
-    req.login(registeredUser, err => {
-        if (err) return next(err);
-        res.redirect('/');
-    })
-})
-
-app.get('/add', (req, res) => {
-    res.render('admin/add')
-})
-
-app.post('/add', async (req, res) => {
-    const ownerPack = await User.findOne({IB: req.body.IB})
-    const package = new Package({ name: req.body.name, origen: req.body.origen, IB: req.body.IB, trackingN: req.body.tracking, status: req.body.status, owner: ownerPack })
-    await package.save()
-    res.redirect('/add')
-    
-})
-
-app.get('/packages', async (req,res) => {
-    const packages = await Package.find({IB: req.user.IB})
-    res.render('customer/packages',{ packages: packages })
-})
-
-app.listen(port, () => {
+app.listen(PORT, () => {
     console.log('Up and Running');
 })
