@@ -61,7 +61,7 @@ app.use((err, req, res, next) => {
 app.use(cookieParser())
 
 app.use(session({
-    secret: 'keyboard cat',
+    secret: process.env.SECRET || 'keyboard cat',
     resave: false,
     saveUninitialized: true,
     cookie: { secure: false } 
