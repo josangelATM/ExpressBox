@@ -4,8 +4,7 @@ const IBgenerator = require('../utils/randomIB')
 const User = require('../models/user')
 const mongoose = require('mongoose');
 
-
-const dbUrl = "mongodb+srv://admin:1996@cluster0.oqhcf.mongodb.net/<ExpressBox>?retryWrites=true&w=majority"
+const dbUrl = process.env.DB_URL
 
 mongoose.connect(dbUrl, {
     useNewUrlParser: true,

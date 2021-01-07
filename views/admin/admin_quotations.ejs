@@ -25,9 +25,9 @@
                 <th>Estado</th>
         <% for (quotation of quotations) { %> 
             <tr>
-                <td><a href="/quotationAdmin/<%= quotation.id %> "><%= quotation.id %></a></td>
-                <td><a href="/quotationAdmin/<%= quotation.id %> "><%= quotation.registDate.getDate()+"-"+getSMonth(quotation.registDate.getMonth())+"-"+quotation.registDate.getFullYear() %> %></a></td>
-                <td><a href="/quotationAdmin/<%= quotation.id %> "><%= quotation.status %></a></td>
+                <td><a href="/quotation/admin/<%= quotation.id %> "><%= quotation.id %></a></td>
+                <td><a href="/quotation/admin/<%= quotation.id %> "><%= quotation.registDate.getDate()+"-"+getSMonth(quotation.registDate.getMonth())+"-"+quotation.registDate.getFullYear() %> %></a></td>
+                <td><a href="/quotation/admin/<%= quotation.id %> "><%= quotation.status %></a></td>
             </tr>
         <% } %> 
         </table>
