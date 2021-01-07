@@ -4,7 +4,7 @@ const User =  require('../models/user')
 const Package = require('../models/package')
 
 
-const dbUrl = 'mongodb://localhost:27017/ExpressBox';
+const dbUrl = "mongodb+srv://admin:1996@cluster0.oqhcf.mongodb.net/<ExpressBox>?retryWrites=true&w=majority"
 
 mongoose.connect(dbUrl, {
     useNewUrlParser: true,

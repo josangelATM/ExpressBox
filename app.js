@@ -31,7 +31,7 @@ app.set('views', __dirname + '/views');
 
 app.set('view engine', 'ejs');
 
-const dbUrl = 'mongodb://localhost:27017/ExpressBox';
+const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/ExpressBox';
 
 mongoose.connect(dbUrl, {
     useNewUrlParser: true,
