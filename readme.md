@@ -35,6 +35,8 @@ Its ok, all the data its fictitious data.
 
 If you have any tips, bugs, or whatever, feel free to email me to: joseangel19.lol@gmail.com 
 
+PD.: If you dont want to die, dont try to open in Mobile... its not Responsive Design... yet. 
+
 
 
 
