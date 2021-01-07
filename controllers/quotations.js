@@ -28,10 +28,13 @@ module.exports.showQuotationsSearch = async (req,res)=>{
     let quotations = []
     switch(req.body.type){
         case "IB":
-            console.log(req.body.input);
             const customer = await User.findOne({IB:req.body.input})
+            if(!customer){
+              return res.render('admin/admin_quotations', {title:'Cotización | ExpressBox', quotations})
+            }
             quotations = await Quotation.find({owner: customer._id})
             return res.render('admin/admin_quotations', {title:'Cotización | ExpressBox', quotations})
+            
         break;
         // case "ID":
         //     console.log(req.body.input);
