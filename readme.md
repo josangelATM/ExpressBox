@@ -1,9 +1,9 @@
-﻿# About this project
-ExpressBox is my first approach with web development it is made in Express.js in the backend and EJS in the frontend. For databases i use MongoDB and for the hosting Heroku. 
+# About this project
+ExpressBox is my first approach with web development it is made in Express.js in the backend and EJS in the frontend. For databases I use MongoDB and for the hosting Heroku. 
 
-You can view the web in this link (before you enter, take care... i this point of my life, i suck at design and color combination) 
+You can view the web in this link (before you enter, take care... at this point of my life, I suck at design and color combination) 
 [ExpressBox | De USA a Panamá (express-box.herokuapp.com)](https://express-box.herokuapp.com/)
-Its very likely that you find some errors, its not 100% tested, if you find any error, please let me know, thanks in advanced. 
+It's very likely you find some errors, I not 100% tested, if you find any error, please let me know, thanks in advanced. 
 
 # About ExpressBox 
 
@@ -26,14 +26,14 @@ If you want to try the features as a Customer feel free to use this account:
  - User: Marshal4
  - Password: 12345
 
-And this as a admin: 
+And this as an admin: 
 
  - User: admin1
  - Password 12345
 
 Its ok, all the data its fictitious data.
 
-If you have any tips, bugs, or whatever, feel free to email me to: joseangel19.lol@gmail.com 
+If you have any tips, bugs or whatever, feel free to email me to: joseangel19.lol@gmail.com 
 
 PD.: If you dont want to die, dont try to open in Mobile... its not Responsive Design... yet. 
 
